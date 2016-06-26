@@ -12,14 +12,6 @@ export default {
     goBack () {
       window.history.go(-1)
     }
-  },
-  ready () {
-  },
-  vuex: {
-    getters: {
-    },
-    actions: {
-    }
   }
 }
 

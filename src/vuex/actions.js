@@ -41,3 +41,7 @@ export const getTopicDetail = ({dispatch}, id) => {
     dispatch('GET_TOPIC_DETAIL', data)
   })
 }
+
+export const setNavState = ({dispatch}, state) => {
+  dispatch('SET_NAV_STATE', state)
+}

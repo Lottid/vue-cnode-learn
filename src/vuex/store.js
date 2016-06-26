@@ -9,7 +9,9 @@ const state = {
   shareTopics: [],
   askTopics: [],
   jobTopics: [],
-  topic: {}
+  topic: {},
+  navState: true,
+  loadingState: false
 }
 
 const mutations = {
@@ -30,6 +32,12 @@ const mutations = {
   },
   GET_TOPIC_DETAIL (state, topic) {
     state.topic = topic
+  },
+  SET_NAV_STATE (state, navState) {
+    state.navState = navState
+  },
+  SET_LOADING (state, loadingState) {
+    state.loadingState = loadingState
   }
 }
 

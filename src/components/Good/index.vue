@@ -2,34 +2,61 @@
 <template>
   <div class="good">
     <nav-header></nav-header>
-    <list :topics="goodTopics"></list>
+    <list :topics="newTopics"></list>
   </div>
 </template>
 
 <script>
 import NavHeader from '../NavHeader/index.vue'
 import List from '../List/index.vue'
-import { getGoodTopics } from '../../vuex/actions.js'
+import { getGoodTopics, setNavState } from '../../vuex/actions.js'
+import utils from '../../utils/utils.js'
 export default {
+  data () {
+    return {
+      show: false,
+      newTopics: []
+    }
+  },
   methods: {
-    getAllGood () {
+    getAllGood (page = 1) {
       let data = {
         page: 1,
         tab: 'good',
         limit: 20
       }
-      this.getGoodTopics(data)
+      return this.getGoodTopics(data)
+    },
+    listenScroll () {
+      utils.listenScroll((direction) => {
+        if (direction === 'down') {
+          this.setNavState(false)
+        } else {
+          this.setNavState(true)
+        }
+      }, (page) => {
+        this.getAllGood(page)
+      })
     }
   },
   ready () {
     this.getAllGood()
+  },
+  route: {
+    activate () {
+      this.listenScroll()
+      this.$watch('goodTopics', (newVal, oldVal) => {
+        this.newTopics = this.newTopics.concat(newVal)
+      })
+    }
   },
   vuex: {
     getters: {
       goodTopics: state => state.goodTopics
     },
     actions: {
-      getGoodTopics
+      getGoodTopics,
+      setNavState
     }
   },
   components: {

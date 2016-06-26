@@ -1,3 +1,8 @@
 .list {
   padding-top: 180px;
+  overflow: hidden;
+  z-index: 1;
+  &.hidePadding {
+    padding-top: 70px;
+  }
 }

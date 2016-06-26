@@ -4,13 +4,15 @@
   top: 0;
   width: 100%;
   height: auto;
-  background: #333;
+  background: #25b4ec;
+  z-index: 10;
   .title {
     width: 100%;
     height: 110px;
     line-height: 110px;
     color: #fff;
     font-size: 48px;
+    padding-left: 35px;
     .icon-sidebar {
       float: left;
       width: 50px;
@@ -33,6 +35,7 @@
       color: #fff;
       font-size: 36px;
       &.active {
+        font-weight: bold;
         border-bottom: 5px solid #fff;
       }
     }

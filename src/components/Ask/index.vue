@@ -1,16 +1,22 @@
 <style src="./index.css" scoped></style>
 <template>
-  <div class="share">
+  <div class="ask">
     <nav-header></nav-header>
-    <list :topics="askTopics"></list>
+    <list :topics="newTopics"></list>
   </div>
 </template>
 
 <script>
 import NavHeader from '../NavHeader/index'
 import List from '../List/index.vue'
-import { getAskTopics } from '../../vuex/actions.js'
+import { getAskTopics, setNavState } from '../../vuex/actions.js'
+import utils from '../../utils/utils.js'
 export default {
+  data () {
+    return {
+      newTopics: []
+    }
+  },
   methods: {
     getAllAsk () {
       let data = {
@@ -19,17 +25,37 @@ export default {
         limit: 20
       }
       this.getAskTopics(data)
+    },
+    listenScroll () {
+      utils.listenScroll((direction) => {
+        if (direction === 'down') {
+          this.setNavState(false)
+        } else {
+          this.setNavState(true)
+        }
+      }, (page) => {
+        this.getAllAsk(page)
+      })
     }
   },
   ready () {
     this.getAllAsk()
+  },
+  route: {
+    activate () {
+      this.listenScroll()
+      this.$watch('askTopics', (newVal, oldVal) => {
+        this.newTopics = this.newTopics.concat(newVal)
+      })
+    }
   },
   vuex: {
     getters: {
       askTopics: state => state.askTopics
     },
     actions: {
-      getAskTopics
+      getAskTopics,
+      setNavState
     }
   },
   components: {

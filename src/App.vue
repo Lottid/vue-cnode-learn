@@ -2,16 +2,20 @@
   <div id="app">
     <!-- <nav-header></nav-header> -->
     <router-view keep-alive></router-view>
+    <return-top></return-top>
+    <loading></loading>
   </div>
 </template>
 
 <script>
-// import NavHeader from './components/NavHeader/index'
+import ReturnTop from './components/common/ReturnTop/index.vue'
+import Loading from './components/common/Loading/index.vue'
 import store from './vuex/store.js'
 
 export default {
   components: {
-    // 'nav-header': NavHeader
+    'return-top': ReturnTop,
+    'loading': Loading
   },
   store
 }

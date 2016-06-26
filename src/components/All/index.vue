@@ -2,28 +2,41 @@
 <template>
   <div class="home">
     <nav-header></nav-header>
-    <list :topics="topics"></list>
+    <list :topics="newTopics"></list>
   </div>
 </template>
 
 <script>
+// import $ from 'webpack-zepto'
 import NavHeader from '../NavHeader/index'
 import List from '../List/index.vue'
-import { getAllTopics } from '../../vuex/actions.js'
+import { getAllTopics, setNavState } from '../../vuex/actions.js'
+import utils from '../../utils/utils.js'
 export default {
   data () {
     return {
-      msg: '123123'
+      newTopics: []
     }
   },
   methods: {
-    getAll () {
+    getAll (page = 1) {
       let data = {
-        page: 1,
+        page: page,
         tab: '',
         limit: 20
       }
       this.getAllTopics(data)
+    },
+    listenScroll () {
+      utils.listenScroll((direction) => {
+        if (direction === 'up') {
+          this.setNavState(true)
+        } else {
+          this.setNavState(false)
+        }
+      }, (page) => {
+        this.getAll(page)
+      })
     }
   },
   ready () {
@@ -31,6 +44,10 @@ export default {
   },
   route: {
     activate () {
+      this.listenScroll()
+      this.$watch('topics', (newVal, oldVal) => {
+        this.newTopics = this.newTopics.concat(newVal)
+      })
     }
   },
   vuex: {
@@ -38,7 +55,8 @@ export default {
       topics: state => state.topics
     },
     actions: {
-      getAllTopics
+      getAllTopics,
+      setNavState
     }
   },
   components: {

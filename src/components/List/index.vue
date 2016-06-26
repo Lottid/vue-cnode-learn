@@ -1,16 +1,18 @@
 <style src="./index.css" scoped></style>
 <template>
-    <div class="list">
+    <div class="list slideleft-enter"
+      :class="{'hidePadding': navState === false}"
+      >
       <list-item v-for="item in topics" :item="item" track-by="$index"></list-item>
     </div>
 </template>
 
 <script>
 import ListItem from '../common/ListItem/index.vue'
+import { setNavState } from '../../vuex/actions.js'
 export default {
   data () {
     return {
-      msg: '123123'
     }
   },
   props: {
@@ -18,17 +20,14 @@ export default {
       type: Array
     }
   },
-  route: {
-    activate () {
-      console.log('1')
-    }
-  },
-  amount () {
-    console.log(2)
+  methods: {
   },
   vuex: {
     getters: {
-      // topics: state => state.topics
+      navState: state => state.navState
+    },
+    actions: {
+      setNavState
     }
   },
   components: {

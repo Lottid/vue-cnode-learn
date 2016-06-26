@@ -1,9 +1,9 @@
 <style src="./index.css" scoped></style>
 <template>
   <div class="nav">
-    <div class="title">
-      <img  class="icon-sidebar" src="../../assets/img/icon-sidebar.png" alt=""/>
-      {{title}}
+    <div class="title" v-if="navState">
+      <!-- <img  class="icon-sidebar" src="../../assets/img/icon-sidebar.png" alt=""/> -->
+      CNODE社区
     </div>
     <div class="nav-bar">
       <span
@@ -30,10 +30,12 @@ import { getAllTopics } from '../../vuex/actions.js'
 export default {
   data () {
     return {
-      title: '全部'
     }
   },
   computed: {
+    title: function () {
+      return this.$route.name
+    },
     tab: function () {
       return this.$route.name
     },
@@ -69,6 +71,7 @@ export default {
   },
   vuex: {
     getters: {
+      navState: state => state.navState,
       topics: state => state.topics
     },
     actions: {
