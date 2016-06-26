@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <home></home>
+    <!-- <nav-header></nav-header> -->
+    <router-view keep-alive></router-view>
   </div>
 </template>
 
 <script>
-import Home from './components/Home/index'
+// import NavHeader from './components/NavHeader/index'
+import store from './vuex/store.js'
 
 export default {
   components: {
-    'home': Home
-  }
+    // 'nav-header': NavHeader
+  },
+  store
 }
 </script>

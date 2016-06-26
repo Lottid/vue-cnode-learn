@@ -1,0 +1,21 @@
+.title-type {
+  display: block;
+  margin-right: 20px;
+  width: 70px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 26px;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  &.top {
+    background: #E74C3C;
+  }
+  &.good {
+    background: #E67E22;
+  }
+  &.simple {
+    background: #e5e5e5;
+    color: #999;
+  }
+}

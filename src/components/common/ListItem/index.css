@@ -1,0 +1,84 @@
+.list-item {
+  padding: 25px;
+  border-bottom: 3px solid #d6d6d6;
+  .item-title {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    .title-type {
+      margin-right: 20px;
+      width: 70px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 26px;
+      color: #fff;
+      text-align: center;
+      border-radius: 15px;
+      &.top {
+        background: #E74C3C;
+      }
+      &.good {
+        background: #E67E22;
+      }
+      &.simple {
+        background: #e5e5e5;
+        color: #999;
+      }
+    }
+    .title-txt {
+      width: 590px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 26px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: #000;
+    }
+  }
+}
+
+.item-info {
+  .avator {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 100%;
+  }
+  .item-center {
+    float: left;
+    width: auto;
+    max-width: 470px;
+    height: 80px;
+    span {
+      display: block;
+    }
+    .user-name {
+      font-size: 24px;
+      color: #000;
+      margin-bottom: 14px;
+    }
+    .create-time {
+      font-size: 26px;
+      color: #656565;
+    }
+  }
+}
+
+.item-right {
+  float: right;
+  span {
+    display: block;
+  }
+  .reader-data {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 15px;
+  }
+  .relative-time {
+    font-size: 26px;
+    color: #656565;
+  }
+}
