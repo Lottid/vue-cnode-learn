@@ -1,0 +1,43 @@
+
+.menu {
+  .mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 12;
+  }
+  .menu-dialog {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    padding: 30px;
+    margin: 0;
+    border-radius: 10px;
+    background: #f3f0e9;
+    list-style: none;
+    z-index: 12;
+    li {
+      width: 400px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 36px;
+      text-align: center;
+      border-bottom: 1px solid #dfded9;
+    }
+  }
+}
+
+
+.menu-item {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  .icon-abount {
+    width: 30px;
+    height: 30px;
+    margin: 15px 30px 15px 0;
+  }
+}

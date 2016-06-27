@@ -82,7 +82,6 @@ module.exports = {
   vue: {
     postcss: [
       require('precss')(),
-      require('postcss-cssnext')(),
       require('postcss-px2rem')({remUnit: 100})
     ],
     loaders: utils.cssLoaders()

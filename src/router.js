@@ -35,6 +35,12 @@ export default function (router) {
       component: function (resolve) {
         require(['./components/Topic/index.vue'], resolve)
       }
+    },
+    '/about': {
+      name: 'about',
+      component: function (resolve) {
+        require(['./components/About/index.vue'], resolve)
+      }
     }
   })
   router.redirect({

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="item-info clearfix">
-      <img class="avator" :src="item.author.avatar_url" alt="" />
+      <img class="avator lazyload" :data-src="item.author.avatar_url" alt="" />
       <div class="item-center">
         <span class="user-name">
           {{item.author.loginname}}

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import ListItem from '../common/ListItem/index.vue'
-import { setNavState } from '../../vuex/actions.js'
+import ListItem from '../ListItem/index.vue'
+import { setNavState } from '../../../vuex/actions.js'
 export default {
   data () {
     return {

@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="topic-detail" v-html="topic.content">
+      <div class="topic-detail markdown-body" v-html="topic.content">
         <!-- {{{topic.content | marked}}} -->
       </div>
     </div>
@@ -33,7 +33,7 @@
             <span class="relative-time">{{item.create_at}}</span>
           </div>
         </div>
-        <div class="reply-content" v-html="item.content">
+        <div class="reply-content markdown-body" v-html="item.content">
           <!-- {{{item.content | marked}}} -->
         </div>
       </div>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import $ from 'webpack-zepto'
 import marked from 'marked'
 import ReNavHeader from '../common/ReNavHeader/index.vue'
 import LabelType from '../common/LabelType/index.vue'
@@ -95,6 +96,7 @@ export default {
   route: {
     activate () {
       this.getTopic()
+      $(window).off('scroll')
     }
   },
   vuex: {

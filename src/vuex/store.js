@@ -11,7 +11,8 @@ const state = {
   jobTopics: [],
   topic: {},
   navState: true,
-  loadingState: false
+  loadingState: false,
+  menuState: false
 }
 
 const mutations = {
@@ -38,6 +39,9 @@ const mutations = {
   },
   SET_LOADING (state, loadingState) {
     state.loadingState = loadingState
+  },
+  SET_MENU_STATE (state, menuState) {
+    state.menuState = menuState
   }
 }
 

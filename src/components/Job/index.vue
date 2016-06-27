@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import NavHeader from '../NavHeader/index'
-import List from '../List/index.vue'
+import NavHeader from '../common/NavHeader/index'
+import List from '../common/List/index.vue'
 import { getJobTopics, setNavState } from '../../vuex/actions.js'
 import utils from '../../utils/utils.js'
 export default {
@@ -27,7 +27,7 @@ export default {
       this.getJobTopics(data)
     },
     listenScroll () {
-      utils.listenScroll((direction) => {
+      utils.listenScroll(({direction}) => {
         if (direction === 'down') {
           this.setNavState(false)
         } else {

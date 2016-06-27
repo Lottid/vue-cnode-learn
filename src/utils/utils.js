@@ -8,7 +8,12 @@ const listenScroll = (swipeCallback, fetchCallback) => {
     const scrollTop = $window.scrollTop()
     const contentHeight = $('body').height()
     const direction = scrollTop > beforeScroll ? 'down' : 'up'
-    swipeCallback(direction)
+    // const scrollBottom = scrollTop + windowHeight === contentHeight ? true : false
+    const params = {
+      scrollTop,
+      direction
+    }
+    swipeCallback(params)
     if (scrollTop + windowHeight === contentHeight) {
       fetchCallback(page)
       page++

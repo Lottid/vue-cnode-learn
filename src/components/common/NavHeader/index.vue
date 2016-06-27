@@ -2,8 +2,8 @@
 <template>
   <div class="nav">
     <div class="title" v-if="navState">
-      <!-- <img  class="icon-sidebar" src="../../assets/img/icon-sidebar.png" alt=""/> -->
-      CNODE社区
+      <span>CNode社区</span>
+      <img src="../../../assets/img/menu.png" alt="" class="icon-menu" @click="setMenuState(true)"/>
     </div>
     <div class="nav-bar">
       <span
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getAllTopics } from '../../vuex/actions.js'
+import { getAllTopics, setMenuState } from '../../../vuex/actions.js'
 export default {
   data () {
     return {
@@ -75,7 +75,8 @@ export default {
       topics: state => state.topics
     },
     actions: {
-      getAllTopics
+      getAllTopics,
+      setMenuState
     }
   }
 }

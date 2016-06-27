@@ -8,8 +8,8 @@
 
 <script>
 // import $ from 'webpack-zepto'
-import NavHeader from '../NavHeader/index'
-import List from '../List/index.vue'
+import NavHeader from '../common/NavHeader/index'
+import List from '../common/List/index.vue'
 import { getShareTopics, setNavState } from '../../vuex/actions.js'
 import utils from '../../utils/utils.js'
 export default {
@@ -28,7 +28,7 @@ export default {
       this.getShareTopics(data)
     },
     listenScroll () {
-      utils.listenScroll((direction) => {
+      utils.listenScroll(({direction}) => {
         if (direction === 'down') {
           this.setNavState(false)
         } else {

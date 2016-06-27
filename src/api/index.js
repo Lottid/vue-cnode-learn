@@ -18,8 +18,7 @@ Vue.http.interceptors.push((request, next) => {
 
 export default {
   getAllTopics (data) {
-    return TopicsResource.get({...data
-    })
+    return TopicsResource.get({...data})
   },
   getTopicDetail (id) {
     return TopicResource.get({
