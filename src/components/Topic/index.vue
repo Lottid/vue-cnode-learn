@@ -1,6 +1,6 @@
 <style src="./index.css"></style>
 <template>
-  <div class="topic">
+  <div class="topic slideleft-enter">
     <re-nav-header></re-nav-header>
     <div class="topic-content">
       <div class="topic-title">{{topic.title}}</div>
@@ -17,7 +17,6 @@
         </div>
       </div>
       <div class="topic-detail markdown-body" v-html="topic.content">
-        <!-- {{{topic.content | marked}}} -->
       </div>
     </div>
     <div class="reply">
@@ -27,14 +26,16 @@
       </div>
       <div class="reply-item" v-for="item in replies">
         <div class="reply-top">
-          <img :src="item.author.avatar_url" class="reply-avator" alt="" />
+          <img :data-src="item.author.avatar_url" class="reply-avator lazyload" alt="" />
           <div class="reply-user">
             <span class="user-name">{{item.author.loginname}}</span>
-            <span class="relative-time">{{item.create_at}}</span>
+            <div class="reply-time-content">
+              <span class="floor">{{$index + 1}}楼</span> •
+              <span class="relative-time">{{item.create_at | formatRelativeTime}}</span>
+            </div>
           </div>
         </div>
         <div class="reply-content markdown-body" v-html="item.content">
-          <!-- {{{item.content | marked}}} -->
         </div>
       </div>
     </div>

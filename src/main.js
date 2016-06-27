@@ -17,8 +17,7 @@ Vue.config.debug = true
 
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 const router = new VueRouter({
-  history: true,
-  saveScrollPosition: true
+  hashbang: false
 })
 
 routerMap(router)

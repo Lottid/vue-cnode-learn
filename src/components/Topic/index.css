@@ -79,16 +79,26 @@
 
   .reply-top {
     display: flex;
+    flex-flow: row;
     justify-content: flex-start;
+    margin-bottom: 20px;
     .reply-avator {
       width: 90px;
       height: 90px;
+      margin-right: 30px;
       border-radius: 100%;
     }
     .reply-user {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
       font-size: 26px;
+      padding-top: 5px;
       .user-name {
-
+        margin-bottom: 15px;
+      }
+      .floor {
+        color: #7cbd01;
       }
     }
   }

@@ -1,7 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 console.log(process.env.NODE_ENV)
-var assetsPublicPath = process.env.NODE_ENV === 'production' ? './' : '/'
+var assetsPublicPath = process.env.NODE_ENV === 'production' ? 'http://www.wendaosanshou.top/vue/vue-cnode/' : '/'
 
 module.exports = {
   build: {
